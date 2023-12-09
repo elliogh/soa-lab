@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="21ff7b60-6c48-4c35-8406-371d19e1fa88" name="Changes" comment="Eto nakonec to robit">
+      <change afterPath="$PROJECT_DIR$/all-frontend/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/.idea/all-frontend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/public/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/assets/dto-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/assets/error-styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/assets/forms-inputs.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/assets/navigation-and-buttons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/assets/requets.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/assets/text_bold.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/First.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/Second.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/data-details/OkResponseNoContent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/data-details/OrganizationFromDto.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/data-details/errors/ErrorDto.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/data-details/errors/OtherError.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/data-details/errors/ValidationError.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/data-details/errors/ViolationError.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/data-details/overflow-hid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/headers-and-static/Header.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/headers-and-static/NavigationAndServices.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/requests/ErrorHandler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/requests/first/advanced-set/GetLessThanFullName.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/requests/first/advanced-set/GetMaximumEmployeesCount.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/requests/first/advanced-set/GetMinimumPostalAddress.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/requests/first/basic-set/DeleteOneOrganization.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/requests/first/basic-set/GetAllOrganizations.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/requests/first/basic-set/GetOneOrganization.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/requests/first/basic-set/GetOrganizationsWithPreferences.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/requests/first/basic-set/PostOneOrganization.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/requests/first/basic-set/PutOneOrganization.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/requests/second/FireAll.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/requests/second/HireOne.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/utils/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/components/utils/validate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/configs/Config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all-frontend/vite.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.gradle/7.6/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.gradle/7.6/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.gradle/7.6/dependencies-accessors/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.gradle/7.6/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.gradle/7.6/executionHistory/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.gradle/7.6/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.gradle/7.6/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.gradle/7.6/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.gradle/7.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.gradle/7.6/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.gradle/file-system.probe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/payara-micro-5.2022.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/src/main/java/ru/itmo/employee/service/CorsFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/src/main/java/ru/itmo/employee/service/EmployeeserviceRestApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/src/main/java/ru/itmo/employee/service/client/ClientController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/src/main/java/ru/itmo/employee/service/client/Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/src/main/resources/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/src/main/resources/EmployeeService.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/src/main/resources/META-INF/microprofile-config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employee-service/src/main/resources/keystore.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/certificate.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/keystore.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/myCertificate.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/OrganizationServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/config/CorsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/config/RestApplicationConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/controller/OrganizationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/dto/BadResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/dto/OrganizationsList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/exception/CustomException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/exception/InvalidParametersException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/exception/NotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/model/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/model/Coordinates.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/model/Organization.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/model/OrganizationType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/repository/OrganizationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/service/FilteringAndOrderingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/service/FilteringAndOrderingServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/service/OrganizationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/service/OrganizationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/java/ru/itmo/organizationservice/util/Validator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/resources/OrgService.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/resources/init.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/main/resources/keystore.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organization-service/src/test/java/ru/itmo/organizationservice/OrganizationServiceApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2ZJtIsD5RD5BCzTvXfrhM6sgGQr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/dany/IdeaProjects/soa-lab",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="21ff7b60-6c48-4c35-8406-371d19e1fa88" name="Changes" comment="" />
+      <created>1702151933160</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1702151933160</updated>
+      <workItem from="1702151934526" duration="418000" />
+    </task>
+    <task id="LOCAL-00001" summary="Eto nakonec to robit">
+      <option name="closed" value="true" />
+      <created>1702152346050</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702152346050</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Eto nakonec to robit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eto nakonec to robit" />
+  </component>
+</project>
