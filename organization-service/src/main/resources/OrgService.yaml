@@ -1,0 +1,338 @@
+openapi: 3.0.3
+info:
+  title: Organization service
+  description: Service for viewing and editing organizations
+  version: 1.0.0
+servers:
+  - url: 'https://localhost:8000/api/v1'
+tags:
+  - name: Organization
+    description: Organization endpoints
+paths:
+  # CRUD
+  /organizations:
+
+    get:
+      summary: Get a list of organizations
+      description: Get a list of organizations
+      operationId: getOrganizations
+      tags: [Organization]
+      parameters:
+        - in: query
+          name: sort
+          description: Fields to sort by. Ascending order by default, use "-" to sort in descending order.
+            Attempting to sort by field and its inverse, such as "id,-id" returns an error.
+          explode: true # ?field1=value1,field2=value2
+          required: false
+          schema:
+            type: array
+            default: id
+            items:
+              type: string
+              default: id
+              enum: [id, name, coordinates.x, coordinates.y, creationDate, annualTurnover,
+                     fullName, employeesCount, type, postalAddress.street, postalAddress.zipCode,
+                     -id, -name, -coordinates.x, -coordinates.y, -creationDate, -annualTurnover,
+                     -fullName, -employeesCount, -type, -postalAddress.street, -postalAddress.zipCode]
+        - name: filter
+          description: Filters, using separate query param for each field.
+          in: query
+          required: false
+          style: form # https://t.ly/lrykp
+          explode: true
+          example: floor=4&numberOfRooms=5
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: false
+          description: Number of a requested page. Default is "1", the first page.
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+            exclusiveMinimum: false
+        - name: pageSize
+          in: query
+          required: false
+          description: Size of requested page. Default is 10.
+          schema:
+            type: integer
+            default: 10
+            minimum: 1
+            exclusiveMinimum: false
+      responses:
+        200:
+          description: An array of organizations based on the specified parameters
+          content:
+            application/xml:
+              schema:
+                xml:
+                  name: organizations
+                type: array
+                items:
+                  $ref: '#/components/schemas/Organization'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+
+    post:
+      summary: Create a new organization
+      description: Create a new organization
+      operationId: createOrganization
+      tags: [Organization]
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OrganizationData'
+      responses:
+        201:
+          description: Returns a created organization
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Organization'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+
+  /organizations/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          format: int32
+          minimum: 1
+          exclusiveMinimum: false
+        description: ID of the organization
+
+    get:
+      summary: Get an organization by id
+      description: Get an organization by id
+      operationId: getOrganization
+      tags: [Organization]
+      responses:
+        200:
+          description: Organization object with requested ID
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Organization'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+
+    put:
+      summary: Update an organization
+      description: Update an organization
+      operationId: updateOrganization
+      tags: [Organization]
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/OrganizationData'
+      responses:
+        200:
+          description: Returns an updated organization
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Organization'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+
+    delete:
+      summary: Delete an organization
+      description: Delete an organization
+      operationId: deleteOrganization
+      tags: [Organization]
+      responses:
+        204: # 204 No Content
+          description: The organization was successfully deleted
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+
+  # Other
+  /organizations/minimumPostalAddress:
+    get:
+      summary: Return an organization with a minimal postalAddress
+      description: Return an organization with a minimal postalAddress
+      operationId: getOrganizationWithMinimumPostalAddress
+      tags: [Organization]
+      responses:
+        200:
+          description: Organization object with minimal postalAddress
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Organization'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+
+  /organizations/maximumEmployeesCount:
+    get:
+      summary: Return an organization with a maximum employeesCount
+      description: Return an organization with a maximum employeesCount
+      operationId: getOrganizationWithMaximumEmployeesCount
+      tags: [Organization]
+      responses:
+        200:
+          description: Organization object with a maximum employeesCount
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Organization'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+
+  /organizations/lessThanFullName:
+    get:
+      summary: Return a list of organizations whose fullName is less than the specified fullName
+      description: Return a list of organizations whose fullName is less than the specified fullName
+      operationId: getOrganizationsWithFullName
+      tags: [Organization]
+      responses:
+        200:
+          description: List of organizations whose fullName is less than the specified fullName
+          content:
+            application/xml:
+              schema:
+                xml:
+                  name: error
+                type: array
+                items:
+                  $ref: '#/components/schemas/Organization'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+
+components:
+  schemas:
+
+    Coordinates:
+      type: object
+      xml:
+        name: coordinates
+      properties:
+        x:
+          type: number
+          minimum: -631
+          format: float
+          exclusiveMinimum: true
+        y:
+          type: number
+          format: float
+      required: [x, y]
+
+    Address:
+      type: object
+      xml:
+        name: address
+      properties:
+        street:
+          type: string
+        zipCode:
+          type: string
+      required: [street, zipCode]
+
+    OrganizationType:
+      type: string
+      xml:
+        name: organizationType
+      enum:
+        - COMMERCIAL
+        - PUBLIC
+        - GOVERNMENT
+        - PRIVATE_LIMITED_COMPANY
+
+    OrganizationData:
+      type: object
+      description: Object used to create and update organizations. Does not have an ID.
+      required: [name, coordinates, creationDate, fullName, employeesCount]
+      xml:
+        name: organization
+      properties:
+        name:
+          type: string
+          minLength: 1
+        coordinates:
+          $ref: '#/components/schemas/Coordinates'
+        creationDate:
+          type: string
+          format: date-time
+        annualTurnover:
+          type: number
+          format: double
+          minimum: 0
+          exclusiveMinimum: true
+        fullName:
+          type: string
+        employeesCount:
+          type: integer
+          format: int32
+          minimum: 0
+          exclusiveMinimum: true
+        type:
+          $ref: '#/components/schemas/OrganizationType'
+        postalAddress:
+          $ref: '#/components/schemas/Address'
+
+    Organization:
+      type: object
+      xml:
+        name: organization
+      required: [id, name, coordinates, creationDate, fullName, employeesCount]
+      properties:
+        id:
+          type: integer
+          format: int32
+          minimum: 1
+          exclusiveMinimum: false
+        name:
+          type: string
+          minLength: 1
+        coordinates:
+          $ref: '#/components/schemas/Coordinates'
+        creationDate:
+          type: string
+          format: date-time
+        annualTurnover:
+          type: number
+          format: double # depends on openapi generator
+          minimum: 0
+          exclusiveMinimum: true
+        fullName:
+          type: string
+        employeesCount:
+          type: integer
+          format: int32
+          minimum: 0
+          exclusiveMinimum: true
+        type:
+          $ref: '#/components/schemas/OrganizationType'
+        postalAddress:
+          $ref: '#/components/schemas/Address'
+
+  responses:
+    ErrorResponse:
+      description: Error with a string code identifier, human-readable message, and time
+      content:
+        application/xml:
+          schema:
+            type: object
+            xml:
+              name: error
+            properties:
+              code:
+                type: string
+                description: Error identifier
+                example: invalid_parameters
+              message:
+                type: string
+                description: Human-readable message
+                example: Invalid parameters supplied
+              time:
+                type: string
+                format: date-time
+                example: 2023-09-18T00:00:09Z

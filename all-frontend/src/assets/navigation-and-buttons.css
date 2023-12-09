@@ -1,0 +1,39 @@
+
+.navigation {
+    text-align: center;
+    display: inline-flex;
+    width: 100%;
+}
+
+.trapezoid-first {
+    width: 34%;
+    background: linear-gradient(to right, #735959, #60523a); /* Градиентный фон от светло-серого слева до темно-серого справа */
+}
+
+.trapezoid-second {
+    width: 33%;
+    background: linear-gradient(to right, #60523a, #c04848); /* Градиентный фон от светло-серого слева до темно-серого справа */
+}
+
+.trapezoid-third {
+    width: 33%;
+    background: linear-gradient(to right, #c04848, #1d0131); /* Градиентный фон от светло-серого слева до темно-серого справа */
+}
+
+
+.my-button {
+    background-color: rgba(134, 8, 8, 0.76);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.my-button:hover {
+    background-color: #ff3030;
+}
+
+.my-button:active {
+    background-color: #0f9d4b;
+}

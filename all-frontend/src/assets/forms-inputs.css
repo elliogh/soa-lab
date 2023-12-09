@@ -1,0 +1,46 @@
+.another-field {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+label {
+    color: black;
+    display: inline;
+    justify-content: flex-start;
+    align-items: end;
+    margin-right: 10px; /* Расстояние между меткой и инпутом */
+    text-align: right; /* Выравнивание текста метки по правому краю */
+    flex: 1;
+}
+
+.form-group input {
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    /*margin-left: 10px;*/
+    align-content: end;
+    flex: 1;
+}
+
+.form-group select {
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    margin-left: 10px;
+    align-content: end;
+    max-width: 175px;
+    flex: 1;
+}
+
+.field-sort-or-filter {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Выравнивание по левому краю */
+}
+
+.sort-field {
+    display: flex;
+    align-items: center; /* Выравнивание элементов по вертикали */
+    margin-bottom: 10px; /* Расстояние между полями сортировки */
+}
