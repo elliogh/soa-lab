@@ -1,0 +1,15 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: api-gateway
+
+zuul:
+  routes:
+    employee-service:
+      path: /orgmanager/**
+      url: http://localhost:8085/orgmanager/
+    organization-service:
+      path: /organizations/**
+      url: http://localhost:8084/organizations/
