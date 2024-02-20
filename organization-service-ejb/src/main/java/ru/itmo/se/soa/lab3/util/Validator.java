@@ -1,0 +1,31 @@
+package ru.itmo.se.soa.lab3.util;
+
+import org.apache.commons.lang3.StringUtils;
+import ru.itmo.se.soa.lab3.exception.InvalidParametersException;
+import ru.itmo.se.soa.lab3.model.Address;
+import ru.itmo.se.soa.lab3.model.Coordinates;
+import ru.itmo.se.soa.lab3.model.Organization;
+
+import java.util.Objects;
+
+public class Validator {
+    public void validateOrganization(Organization o) throws InvalidParametersException {
+        if (StringUtils.isBlank(o.getName())) throwException();
+        Coordinates coordinates = o.getCoordinates();
+        if (Objects.isNull(coordinates)) throwException();
+        if (coordinates.getX() < -631) throwException();
+        if (Objects.isNull(coordinates.getY())) throwException();
+        if (Objects.nonNull(o.getAnnualTurnover())) {
+            if (o.getAnnualTurnover() <= 0) throwException();
+        }
+        if (Objects.isNull(o.getEmployeesCount()) || o.getEmployeesCount() < 0) throwException();
+        Address address = o.getPostalAddress();
+        if (StringUtils.isBlank(address.getStreet())) throwException();
+        if (StringUtils.isBlank(address.getZipCode())) throwException();
+    }
+
+    private void throwException() throws InvalidParametersException {
+        throw new InvalidParametersException();
+    }
+}
+
