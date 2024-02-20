@@ -17,14 +17,14 @@ public class ClientController {
 
     @DeleteMapping(value = "/fire/all/{id}")
     public ResponseEntity<?> fireAll(@PathVariable("id") Long id) {
-        var a = service.fire(id);
-        return ResponseEntity.status(200).body(a);
+        var organization = service.fire(id);
+        return ResponseEntity.status(200).body(organization);
     }
 
     @PostMapping("/hire/{id}")
     public ResponseEntity<?> hire(@PathVariable("id") Long id) {
-        System.out.println("hire");
-        return ResponseEntity.status(200).build();
+        var organization = service.hire(id);
+        return ResponseEntity.status(200).body(organization);
     }
 
 }
