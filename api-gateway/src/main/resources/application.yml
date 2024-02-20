@@ -12,4 +12,4 @@ zuul:
       url: http://localhost:8085/orgmanager/
     organization-service:
       path: /organizations/**
-      url: http://localhost:8084/organizations/
+      url: http://localhost:8080/organization-service/organizations/
