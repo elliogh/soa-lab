@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value = "/orgmanager", produces = MediaType.APPLICATION_XML_VALUE)
 public class ClientController {
