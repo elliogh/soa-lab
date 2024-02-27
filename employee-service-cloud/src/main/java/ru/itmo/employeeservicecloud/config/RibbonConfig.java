@@ -2,10 +2,8 @@ package ru.itmo.employeeservicecloud.config;
 
 import com.netflix.client.config.DefaultClientConfigImpl;
 import com.netflix.client.config.IClientConfig;
-import com.netflix.loadbalancer.AvailabilityFilteringRule;
-import com.netflix.loadbalancer.IPing;
-import com.netflix.loadbalancer.IRule;
-import com.netflix.loadbalancer.PingUrl;
+import com.netflix.loadbalancer.*;
+import org.springframework.cloud.netflix.ribbon.StaticServerList;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -25,5 +23,10 @@ public class RibbonConfig {
     @Bean
     public IRule ribbonRule(IClientConfig config) {
         return new AvailabilityFilteringRule();
+    }
+
+    @Bean
+    public ServerList<Server> ribbonServerList() {
+        return new StaticServerList<>((new Server("localhost", 8080)));
     }
 }

@@ -1,10 +1,10 @@
 package ru.itmo.employeeservicecloud.exception.handler;
 
-import feign.FeignException;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import ru.itmo.employeeservicecloud.dto.BadResponse;
@@ -16,8 +16,8 @@ import ru.itmo.employeeservicecloud.exception.NotFoundException;
 @ControllerAdvice
 public class ErrorHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value = FeignException.NotFound.class)
-    protected ResponseEntity<BadResponse> handleConflict(FeignException.NotFound e) {
+    @ExceptionHandler(value = HttpClientErrorException.NotFound.class)
+    protected ResponseEntity<BadResponse> handleConflict(HttpClientErrorException.NotFound e) {
         return buildResponseEntity(new NotFoundException());
     }
 

@@ -10,21 +10,21 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/orgmanager", produces = MediaType.APPLICATION_XML_VALUE)
 public class ClientController {
-    private final Service service;
+    private final RestClient restClient;
 
-    public ClientController(Service service) {
-        this.service = service;
+    public ClientController(RestClient restClient) {
+        this.restClient = restClient;
     }
 
     @DeleteMapping(value = "/fire/all/{id}")
     public ResponseEntity<?> fireAll(@PathVariable("id") Long id) {
-        var organization = service.fire(id);
+        var organization = restClient.fire(id);
         return ResponseEntity.status(200).body(organization);
     }
 
     @PostMapping("/hire/{id}")
     public ResponseEntity<?> hire(@PathVariable("id") Long id) {
-        var organization = service.hire(id);
+        var organization = restClient.hire(id);
         return ResponseEntity.status(200).body(organization);
     }
 

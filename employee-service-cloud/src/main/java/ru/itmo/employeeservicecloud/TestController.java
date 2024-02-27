@@ -1,4 +1,4 @@
-package ru.itmo.employeeservicecloud.client;
+package ru.itmo.employeeservicecloud;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
