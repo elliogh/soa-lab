@@ -15,6 +15,6 @@ public interface Service {
     @DeleteMapping(value = "/organization-service/employees/{id}", consumes = "application/xml")
     String fire(@PathVariable("id") Long id);
 
-    @PostMapping(value = "/organization-service/employees//{id}", consumes = "application/xml")
+    @PostMapping(value = "/organization-service/employees/{id}", consumes = "application/xml")
     String hire(@PathVariable("id") Long id);
 }
