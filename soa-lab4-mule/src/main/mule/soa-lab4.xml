@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="fd61018b-cfb2-4e84-ab60-9f3be1a71d16" >
+		<http:listener-connection host="localhost" port="26901" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="5fa47e66-566e-41bb-b066-02d1595157af" >
+		<http:request-connection host="localhost" port="26905" />
+	</http:request-config>
+	<http:listener-config name="HTTP_Listener_config1" doc:name="HTTP Listener config" doc:id="6661713a-71d1-471d-9a9b-108be79dd5e9" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration1" doc:name="HTTP Request configuration" doc:id="fbfec39d-d3e3-4e95-80fc-754aa3cd72e8" >
+		<http:request-connection host="localhost" port="8085" />
+	</http:request-config>
+	<flow name="fire" doc:id="97f18fc4-5832-4f06-82a9-921e4ad02b1f" >
+		<http:listener doc:name="Listener" doc:id="7243af40-6390-452a-9f6e-efa53f36ae8a" config-ref="HTTP_Listener_config" path="/orgmanager/fire/all/{id}"/>
+		<ee:transform doc:name="Transform Message" doc:id="b84ef54e-f21a-437d-b3f6-1f00560ddf01" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output text/xml
+ns soapenv http://schemas.xmlsoap.org/soap/envelope/
+ns gs http://www.itmo.ru/employeeservicesoap/gen
+---
+soapenv#Envelope @("xmlns:gs":"http://www.itmo.ru/employeeservicesoap/gen") :{
+    soapenv#Header : {
+    },
+    soapenv#Body : {
+        gs#fireRequest : {
+            "gs:id" : attributes.uriParams.'id'
+        }
+    }
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<http:request method="POST" doc:name="Request" doc:id="ad1f8ec0-cd2f-4b3d-8a5b-7a141f41bbbe" config-ref="HTTP_Request_configuration" path="/ws"/>
+		<ee:transform doc:name="Transform Message" doc:id="f46aa6f3-7825-4421-9e2d-a2c45ff9a632" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns SOAPENV http://schemas.xmlsoap.org/soap/envelope/
+ns ns2 http://www.itmo.ru/employeeservicesoap/gen
+---
+{
+	organization: {
+		id: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#fireResponse.ns2#organization.ns2#id,
+		name: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#fireResponse.ns2#organization.ns2#name,
+		coordinates: {
+			x: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#fireResponse.ns2#organization.ns2#coordinates.ns2#x,
+			y: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#fireResponse.ns2#organization.ns2#coordinates.ns2#y,
+		},
+		creationDate: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#fireResponse.ns2#organization.ns2#creationDate,
+		annualTurnover: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#fireResponse.ns2#organization.ns2#annualTurnover,
+		fullName: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#fireResponse.ns2#organization.ns2#fullName,
+		employeesCount: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#fireResponse.ns2#organization.ns2#employeesCount,
+		"type": payload.SOAPENV#Envelope.SOAPENV#Body.ns2#fireResponse.ns2#organization.ns2#"type",
+		postalAddress: {
+			street: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#fireResponse.ns2#organization.ns2#postalAddress.ns2#street,
+			zipCode: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#fireResponse.ns2#organization.ns2#postalAddress.ns2#zipCode,
+		},
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="hire" doc:id="a16a6b39-d120-447b-b204-052d830a991e" >
+		<http:listener doc:name="Listener" doc:id="65bd02d4-9c9f-4b62-a731-6173f5b16faf" config-ref="HTTP_Listener_config" path="/orgmanager/hire/{id}"/>
+		<ee:transform doc:name="Transform Message" doc:id="5db689a7-7e71-417a-90f0-aa6d18e9ed93" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output text/xml
+ns soapenv http://schemas.xmlsoap.org/soap/envelope/
+ns gs http://www.itmo.ru/employeeservicesoap/gen
+---
+soapenv#Envelope @("xmlns:gs":"http://www.itmo.ru/employeeservicesoap/gen") :{
+    soapenv#Header : {
+    },
+    soapenv#Body : {
+        gs#hireRequest : {
+            "gs:id" : attributes.uriParams.'id'
+        }
+    }
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<http:request method="POST" doc:name="Request" doc:id="8e31a9e3-8669-4b7c-8c41-7ea2e78d582a" config-ref="HTTP_Request_configuration" path="/ws" />
+		<ee:transform doc:name="Transform Message" doc:id="d090b45d-43e4-4b48-8f18-23ff87af56ed" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/xml
+ns SOAPENV http://schemas.xmlsoap.org/soap/envelope/
+ns ns2 http://www.itmo.ru/employeeservicesoap/gen
+---
+{
+	organization: {
+		id: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#hireResponse.ns2#organization.ns2#id,
+		name: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#hireResponse.ns2#organization.ns2#name,
+		coordinates: {
+			x: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#hireResponse.ns2#organization.ns2#coordinates.ns2#x,
+			y: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#hireResponse.ns2#organization.ns2#coordinates.ns2#y,
+		},
+		creationDate: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#hireResponse.ns2#organization.ns2#creationDate,
+		annualTurnover: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#hireResponse.ns2#organization.ns2#annualTurnover,
+		fullName: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#hireResponse.ns2#organization.ns2#fullName,
+		employeesCount: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#hireResponse.ns2#organization.ns2#employeesCount,
+		"type": payload.SOAPENV#Envelope.SOAPENV#Body.ns2#hireResponse.ns2#organization.ns2#"type",
+		postalAddress: {
+			street: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#hireResponse.ns2#organization.ns2#postalAddress.ns2#street,
+			zipCode: payload.SOAPENV#Envelope.SOAPENV#Body.ns2#hireResponse.ns2#organization.ns2#postalAddress.ns2#zipCode,
+		},
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
